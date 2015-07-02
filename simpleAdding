@@ -1,0 +1,13 @@
+  Using the JavaScript language, have the function simpleAdding add up all the numbers from 1 to num.
+  
+  function simpleAdding ( num ) {
+  
+  	var result = 0;
+  	
+  	for ( var i = 1; i <= num; i++ ) {
+  		result += i;
+  	}
+  	
+  	return result;
+  
+  };
