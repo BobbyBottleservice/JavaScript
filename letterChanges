@@ -1,0 +1,33 @@
+Using the JavaScript language, have the function letterChanges take the str parameter being passed and modify it using the following algorithm.  Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a).  Then capitalize every vowel in this new string( a, e, i, o, u) and finally return this modified string.
+
+function letterChanges ( str ) {
+
+	var alpha = "abcdefghijklmnopqrstuvwxyza"; //define the alphabet and include 'a' after 'z' as per the prompt's request
+	var newString = ""; //variable that holds the new string
+	
+	for ( var i = 0; i < str.length; i++ ) { //loop through the string
+		
+		if ( alpha.indexOf(str.charAt(i)) != -1 ) { //test whether the string contains any values declared in alpha using indexOf
+			var newChar = alpha.search(str.charAt(i)); //using the .search() method, return the index of the character in alpha
+			newString += alpha.charAt(newChar + 1); //build string 1 char at a time, and using charAt() + 1 shifts to next letter
+		} else {
+			newString += str.charAt(i); //if no letters are given (ie. numbers only) simply reprint the same string
+		}
+	
+	}
+	
+	for ( var j = 0; j < newString.length; j++ ) { //loop that iterates through new string and capitalizes vowels
+		newString = newString.replace("a", "A");
+    newString = newString.replace("e", "E");
+    newString = newString.replace("i", "I");
+    newString = newString.replace("o", "O");
+    newString = newString.replace("u", "U");
+	}
+	
+	return newString;
+	
+};
+
+console.log(letterChanges("fun times!"));
+
+//should display "gvO Ujnft!"
