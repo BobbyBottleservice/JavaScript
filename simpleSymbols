@@ -1,0 +1,25 @@
+Using the JavaScript language, have the function simpleSymbols take the str parameter being passed and determine if it is an acceptable sequence by either returning the string true or false.  The str parameter will be composed of + and = symbols with several letters between them ( ie. ++d+===+c++==a ) and for the string to be true each letter must be surrounded by a + symbol.  So the string to the left would be false.  The string will not be empty and will have at least one letter.
+
+function simpleSymbols ( str ) {
+
+	var pattern = /[^a-zA-Z0-9\s\+\=]/gi;
+	var newString = str.replace(pattern,"");
+	
+	for ( var i = 0; i < newString.length; i++ ) {
+		if ( newString.charAt(i) != "+" && newString.charAt(i) != "=" ) {
+			var index = newString.indexOf(newString.charAt(i));
+			
+			if ( newString.charAt( index - 1 ) == "+" && newString.charAt( index + 1 ) == "+" ) {
+				return true;
+			} else if ( newString.charAt( index - 1 ) != "+" && newString.charAt( index + 1 ) != "+" ) {
+				return false;
+			} else {
+				return false;
+			}
+		}
+	}
+
+};
+
+/*As of now, the program does not work 100% as intended because it returns true as soon as the +n+ requirement is met
+thus ignoring the rest of the string making patterns such as "++d+===+c++==a" return true*/
