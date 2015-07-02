@@ -18,7 +18,7 @@ function letterChanges ( str ) {
 	
 	for ( var j = 0; j < newString.length; j++ ) { //loop that iterates through new string and capitalizes vowels
 		newString = newString.replace("a", "A");
-		 newString = newString.replace("e", "E");
+		newString = newString.replace("e", "E");
     		newString = newString.replace("i", "I");
     		newString = newString.replace("o", "O");
     		newString = newString.replace("u", "U");
