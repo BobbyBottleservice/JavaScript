@@ -1,0 +1,12 @@
+Using the JavaScript language, have the function firstReverse take the str parameter being passed and return the string in reverse order.
+
+function firstReverse ( str ) {
+	var result = ""; //new empty string to hold the value of the reversed string
+	
+	for ( var i = str.length - 1; i >= 0; i-- ) { //start loop at the end and decrement down to traverse backwards
+		result += str[i];
+	}
+	
+	return result;
+	
+};
