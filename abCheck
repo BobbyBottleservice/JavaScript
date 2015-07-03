@@ -1,0 +1,26 @@
+Using the JavaScript language, have the function abCheck take the str parameter being passed and return the string true if the characters a and b are separated by exactly 3 places anywhere in the string at least once (ie. "lane borrowed" would result in true because there is exactly three characters between a and b).  Otherwise return the string false.
+
+function abCheck ( str ) {
+
+	str = str.toLowerCase(); //To avoid have to write many || cases in the if statements
+	str = str.split(""); 
+	
+	for ( var i = 0; i < str.length; i++ ) {
+	
+		if ( str[i] == "a" ) { //if char at position i = a
+		
+			if ( str[i+4] == "b" || str[i-4] == "b" ) { 
+			
+				return true;
+			
+			} else {
+			
+				return false;
+			
+			}
+		
+		}
+	
+	}
+
+};
