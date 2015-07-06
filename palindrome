@@ -1,0 +1,26 @@
+Using the JavaScript language, have the function palindrome take the str parameter being passed and return the string true if the parameter is a palindrome, (the string is the same forward as it is backward) otherwise return the string false.  For example: "racecar" is also "racecar" backwards.  Punctuation and numbers will not be part of the string.
+
+function palindrome ( str ) {
+
+	var pattern = /[^\w\s]/ig; //RegEx to search for anything that ISN'T a whitespace or a-zA-Z0-9
+	str = str.toLowerCase(); //Convert to lower case to avoidd case sensitive palindromes
+	str = str.replace(pattern,""); //Replace anything not found in our RegEx search with nothing
+	var reversedString; //Variable created set as undefined to hold value of reversed string to test later if it is a palindrome
+
+	for ( var i = 0; i < str.length; i++ ) {
+
+		if (  str.charAt(i) == " " ) {
+			str = str.replace(str.charAt(i),""); //Replace any remaining whitespaces with nothing
+		}
+
+	}
+	
+	reversedString = str.split("").reverse().join(""); //Used split in order to apply reverse method on the string and rejoin
+																										 //Must be done because reverse() is not a method of STRING only ARRAY
+																										 	
+	if ( reversedString == str ) {
+		return true;
+	} else {
+		return false;
+	}
+}
